@@ -1,0 +1,225 @@
+.order {
+  height: 100vh;
+
+  background: url('../img/order.webp') no-repeat right top/cover;
+  color: var(--light);
+
+  &__container {
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .quest {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 500px;
+    padding: 20px;
+
+    border: 2px solid var(--light);
+    border-radius: 20px;
+    box-shadow: 0 0 15px var(--light);
+    background: rgba(0, 0, 0, 0.5);
+
+    &__text {
+      margin-top: 10px;
+    }
+
+    label {
+      position: relative;
+      font-size: 14px;
+      cursor: pointer;
+      color: var(--light);
+    }
+
+    .security {
+      text-decoration: underline;
+    }
+
+    label input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .input--check {
+      position: relative;
+      display: inline-block;
+      top: 5px;
+      width: 30px;
+      height: 30px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      margin-right: 5px;
+      transition: .5s;
+    }
+
+    label input:checked~.input--check {
+      background: var(--aqua);
+      border-color: var(--aqua);
+      animation: ScalePump .7s ease;
+    }
+
+    @keyframes ScalePump {
+      30% {
+        transform: scale(1.3, .7);
+      }
+
+      40% {
+        transform: scale(1);
+      }
+
+      55% {
+        transform: scale(1);
+      }
+
+      70% {
+        transform: scale(1.2, .8);
+      }
+
+      80% {
+        transform: scale(1);
+      }
+
+      90% {
+        transform: scale(1.1, .9);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .input--check::before {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: 6px;
+      width: 15px;
+      height: 8px;
+      border-bottom: 4px solid #fff;
+      border-left: 4px solid #fff;
+      transform: scale(0) rotate(-45deg);
+      transition: .5s;
+    }
+
+    label input:checked~.input--check::before {
+      transform: scale(1) rotate(-45deg);
+    }
+  }
+
+  .input__box {
+    position: relative;
+    width: 280px;
+    margin: 20px 0;
+  }
+
+  .input__box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+
+    padding: 0 5px;
+    pointer-events: none;
+    transition: all .3s ease-in-out;
+  }
+
+  .input__box label::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: transparent;
+    border-left: 1.8px solid var(--aqua);
+    border-bottom: 1.8px solid var(--aqua);
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: .5s;
+  }
+
+  .input__box label::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    background: transparent;
+    border-left: 1.8px solid var(--aqua);
+    border-bottom: 1.8px solid var(--aqua);
+    transform: rotate(225deg);
+    opacity: 0;
+    transition: .5s;
+  }
+
+  .input__box input {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1.8px solid rgba(255, 255, 255, .3);
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    transition: .5s;
+  }
+
+  .input__box input:focus~label,
+  .input__box input:valid~label {
+
+    top: 0;
+    left: 10px;
+    font-size: 11px;
+    background-color: rgb(15 27 33);
+    color: var(--aqua);
+    padding: 0 12px;
+  }
+
+  .input__box input:focus~label::after,
+  .input__box input:valid~label::after,
+  .input__box input:focus~label::before,
+  .input__box input:valid~label::before {
+    top: 2, 5px;
+    opacity: 1;
+  }
+
+  .input__box input:focus,
+  .input__box input:valid {
+    border: 1.8px solid var(--aqua);
+    box-shadow: 0 0 15px var(--aqua);
+
+  }
+
+}
+
+@media (max-width: (768px)) {
+  .order {
+    height: 800px;
+
+    &__container {
+      align-items: center;
+    }
+
+    .quest {
+      width: 470px;
+    }
+  }
+}
+
+@media (max-width: (480px)) {
+  .order {
+    height: 600px;
+
+    .quest {
+      width: 310px;
+    }
+  }
+}

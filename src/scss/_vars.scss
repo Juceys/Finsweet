@@ -1,0 +1,96 @@
+:root {
+  // base
+  --font-family: "Poppins", sans-serif;
+  --content-width: 1170px;
+  --container-offset: 15px;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+
+  --index: calc((1vw + 1vh));
+
+  --size-caf: 1;
+  // colors
+  --accent: #ffdb31;
+  --aqua: #00d7d4;
+  --red: #f52c51;
+  --light: #d8d8ff;
+  --dark: #1f242d;
+}
+
+// h1
+.title {
+  font-size: 48px;
+  line-height: 64px;
+  font-weight: 700;
+
+  letter-spacing: -1px;
+}
+
+// h2
+.section--caption {
+  font-size: 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+// h3
+.slogan {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 500;
+}
+
+// p
+.text {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+//fz-36
+
+.fz-36 {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
+@media (max-width: (1080px)) {
+  .title {
+    font-size: 42px;
+    line-height: 48px;
+  }
+}
+
+@media (max-width: (768px)) {
+  .title {
+    font-size: 36px;
+    line-height: 48px;
+  }
+
+  .section--caption {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .slogan {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: (480px)) {
+  .title {
+    font-size: 30px;
+    line-height: 44px;
+  }
+  .slogan {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 500;
+  }
+  .fz-36 {
+    font-size: 26px;
+  }
+}

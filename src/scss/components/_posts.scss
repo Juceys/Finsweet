@@ -1,0 +1,131 @@
+.post {
+  box-sizing: content-box;
+  position: relative;
+  width: 100%;
+  overflow-y: hidden;
+  height: 100%;
+  padding: 50px 0;
+
+  background: rgb(8, 11, 21);
+  background: linear-gradient(180deg, rgba(8, 11, 21, 1) 0%, rgba(20, 64, 64, 1) 40%, rgba(26, 49, 49, 1) 85%);
+
+  &__container {
+    display: flex;
+    gap: calc(1.5 * var(--index));
+    color: var(--light);
+  }
+
+  &__featured {
+    flex: 1 0 55%;
+    height: 100%;
+    color: var(--accent);
+
+    &--wrapper {
+      margin-top: 20px;
+      padding: calc(1.1 * var(--index));
+      border: 1px solid rgb(255, 255, 255, .4);
+      border-radius: 20px;
+    }
+  }
+
+  &__image {
+    width: cover;
+    max-height: calc(10 * var(--index));
+  }
+
+  &__author {
+    text-align: right;
+    margin-top: calc(1.5 * var(--index));
+    font-size: calc(.9 * var(--index));
+    font-weight: 400;
+  }
+
+  &--lead {
+    margin-top: calc(.75 * var(--index));
+  }
+
+  &--text {
+    margin-top: calc(.75 * var(--index));
+  }
+
+  &__btn {
+    margin-top: calc(.75 * var(--index));
+
+    box-shadow: 0px 0px 10px var(--accent);
+    background: var(--accent);
+    color: var(--dark);
+
+    &:hover {
+      box-shadow: 0 0 25px var(--accent);
+    }
+  }
+
+  &__item {
+    margin-top: 20px;
+    padding: calc(.75 * var(--index));
+    border-radius: 10px;
+    transition: background .4s ease-in-out;
+    will-change: background;
+    user-select: none;
+  }
+
+  &__item:hover,
+  .item__active {
+    background: rgba(0, 215, 211, 0.384);
+    cursor: pointer;
+  }
+
+  &__all {
+    &--wrapper {
+      margin-top: 20px;
+    }
+
+    .post__author {
+      margin-top: 0;
+    }
+  }
+
+  .main__post {
+    display: none;
+  }
+
+  .active {
+    display: block;
+    opacity: 0;
+    animation: zoomIn 1s ease forwards;
+    animation-delay: 0s;
+    transition: all .2s ease-in-out;
+  }
+}
+
+@media (max-width: (768px)) {
+  .post {
+    &__container {
+      flex-direction: column-reverse;
+    }
+
+    &__all--wrapper {
+      display: flex;
+    }
+  }
+
+  .post__item .post--text {
+    display: none;
+  }
+
+  .post__item .post__author {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+@media (max-width: (480px)) {
+  .post__item .post__author {
+    font-size: 12px;
+  }
+
+  .post__all--wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
